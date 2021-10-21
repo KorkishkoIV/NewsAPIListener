@@ -92,7 +92,6 @@ class NewsTableViewController: UITableViewController, UITableViewDataSourcePrefe
         let cellY = cell.frame.origin.y
         let cellHeight = cell.frame.size.height
         if (cellY + cellHeight <= y + height){
-            print("Reload")
             loadMoreData()
         }
     }
