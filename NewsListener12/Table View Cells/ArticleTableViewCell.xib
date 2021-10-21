@@ -21,9 +21,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                     </imageView>
                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9MK-D6-uhX">
-                        <rect key="frame" x="0.0" y="41.5" width="414" height="58.5"/>
+                        <rect key="frame" x="0.0" y="42" width="414" height="58"/>
                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WHZ-pv-tFa">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GK-h6-xNT">
@@ -54,23 +54,34 @@
                         </view>
                         <blurEffect style="regular"/>
                     </visualEffectView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="249" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kba-SI-JQd" userLabel="PlaceHolder Label">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="91e-oS-STs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="7Up-Fc-Ibx"/>
                     <constraint firstAttribute="trailing" secondItem="9MK-D6-uhX" secondAttribute="trailing" id="AW6-fG-bFz"/>
                     <constraint firstItem="9MK-D6-uhX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="topMargin" priority="750" constant="30" id="Cdz-Q1-baO"/>
                     <constraint firstItem="91e-oS-STs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="G6n-T0-dBm"/>
+                    <constraint firstItem="9MK-D6-uhX" firstAttribute="top" secondItem="Kba-SI-JQd" secondAttribute="bottom" constant="8" symbolic="YES" id="JRr-bc-eTC"/>
                     <constraint firstAttribute="trailing" secondItem="91e-oS-STs" secondAttribute="trailing" id="Q9b-ZR-e0E"/>
                     <constraint firstItem="9MK-D6-uhX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VHL-bx-PVy"/>
+                    <constraint firstAttribute="trailing" secondItem="Kba-SI-JQd" secondAttribute="trailing" id="g8p-Vc-sG7"/>
+                    <constraint firstItem="Kba-SI-JQd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lbq-u4-iPS"/>
                     <constraint firstAttribute="bottom" secondItem="9MK-D6-uhX" secondAttribute="bottom" id="mUC-d7-awP"/>
                     <constraint firstAttribute="bottom" secondItem="91e-oS-STs" secondAttribute="bottom" id="sPx-1L-B9L"/>
+                    <constraint firstItem="Kba-SI-JQd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="u8I-WI-JPQ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="articleImageView" destination="91e-oS-STs" id="a6f-F6-PLx"/>
-                <outlet property="contentsLabel" destination="hup-H3-NB0" id="l4P-EA-NbS"/>
+                <outlet property="descriptionLabel" destination="hup-H3-NB0" id="l4P-EA-NbS"/>
                 <outlet property="nameLabel" destination="0GK-h6-xNT" id="WJe-nk-oos"/>
+                <outlet property="placeholderLabel" destination="Kba-SI-JQd" id="cdJ-Bs-uOc"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="82.366071428571431"/>
         </tableViewCell>

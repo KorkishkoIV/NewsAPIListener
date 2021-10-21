@@ -10,7 +10,9 @@ class ArticleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var articleImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var contentsLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var placeholderLabel: UILabel!
+    
     
     var completionBlock: DispatchWorkItem?
 
@@ -32,14 +34,14 @@ class ArticleTableViewCell: UITableViewCell {
     
     func setupImage(url: URL?, id: String, method: StorageMethod = .disk){
         guard let unwrapedUrl = url else {
-            articleImageView.image = UIImage.placeHolderImage()
+            changeImage(image: nil)
             return
         }
-        self.articleImageView.image = UIImage.loadingImage()
+        changeImage(image: nil, loading: true)
         
         var imageToSet: UIImage?
         let block = DispatchWorkItem(block: {
-            self.articleImageView.image = imageToSet ?? UIImage.placeHolderImage()
+            self.changeImage(image: imageToSet)
         })
         completionBlock = block
         let size = self.frame.size
@@ -60,5 +62,18 @@ class ArticleTableViewCell: UITableViewCell {
                 DispatchQueue.main.async(execute:block)
             }
         }
+    }
+    
+    private func changeImage (image: UIImage?, loading: Bool = false){
+        guard let unwrappedImage = image else {
+            articleImageView.isHidden = true
+            placeholderLabel.isHidden = false
+            placeholderLabel.text = loading ? "Loading article image" : "No artilce image"
+            return
+        }
+        articleImageView.isHidden = false
+        articleImageView.image = unwrappedImage
+        placeholderLabel.text = ""
+        placeholderLabel.isHidden = true
     }
 }

@@ -119,6 +119,21 @@ class LocalFileManager {
         }
         return FileManager.default.fileExists(atPath: path.path)
     }
+    
+    func deleteAllImages(){
+        guard let path = getPathFor(name: ""),
+              let filesNames = try? FileManager.default.contentsOfDirectory(atPath: path.path)
+        else{
+            return
+        }
+        DispatchQueue.global(qos: .utility).async {
+            for fileName in filesNames{
+                if fileName.hasSuffix(".png"), let filePath = self.getPathFor(name: fileName){
+                    try? FileManager.default.removeItem(at: filePath)
+                }
+            }            
+        }
+    }
 }
 
 extension LocalFileManager: ImageProvider {

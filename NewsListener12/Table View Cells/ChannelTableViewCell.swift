@@ -5,7 +5,7 @@ class ChannelTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var isFavorite:Bool = false{
+    var favored:Bool = false{
         didSet{
             changeButtonImage()
         }
@@ -29,7 +29,7 @@ class ChannelTableViewCell: UITableViewCell {
     }
     
     @objc func addToFavoriteButtonTapped(_ sender: UIButton){
-        self.isFavorite = !isFavorite
+        self.favored = !favored
         guard let tableView = self.superview as? UITableView else {
             return
         }
@@ -44,10 +44,10 @@ class ChannelTableViewCell: UITableViewCell {
             return
         }
         if #available(iOS 13.0, *) {
-            let image = UIImage(systemName: (isFavorite) ? "star.fill" : "star")
+            let image = UIImage(systemName: (favored) ? "star.fill" : "star")
             button.setImage(image, for: .normal)
         } else {
-            let image = UIImage(named: (isFavorite) ? "StarFill50" : "Star50")
+            let image = UIImage(named: (favored) ? "StarFill50" : "Star50")
             button.setImage(image, for: .normal)
         }
     }

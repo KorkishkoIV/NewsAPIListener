@@ -64,7 +64,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         let article = resultArticles[indexPath.row]
         articleCell.nameLabel.text = article.title
-        articleCell.contentsLabel.text = article.description
+        articleCell.descriptionLabel.text = article.description
         articleCell.setupImage(url: article.urlToImage, id: article.id, method: .cache)
         return articleCell
     }
@@ -155,7 +155,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         backgroundView.addSubview(emptyLabel)
         configureEmptyLabel()
-        
         
         backgroundView.addSubview(refreshActivity)
         configureRefreshActivity()
